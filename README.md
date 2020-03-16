@@ -3,5 +3,5 @@
 This is my P3 project for OpenClassrooms Python path
 
 
-Help MacGyver running out of a maze!
+Help MacGyver getting out of a maze!
 
