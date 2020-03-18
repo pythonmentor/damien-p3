@@ -4,5 +4,5 @@ class Guard:
 	'''
 	
 	def __init__(self, decor_object):
-		self.position = deco_object.exit
+		self.position = decor_object.exit
 	
