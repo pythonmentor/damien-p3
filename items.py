@@ -1,32 +1,31 @@
+import configuration
 import random
 
 class Items:
 	'''
 	About items in the maze, being dropped, position and picked update
 	'''
-	
-	ITEMS_TO_PICKED = {
-						'syringe', 
-						'pipe', 
-						'ether',
-						}
-	
+
 	def __init__(self, decor_object):
 		self.positions = self._dropping_items(decor_object.hallways)
 		self.items_carried = 0
 		
+		
 	def _dropping_items(self, hallways):
 		#Choose random position in decor_objects.hallways
 		#for dropping items
-		list_of_items = Items.ITEMS_TO_PICKED.copy()
+		list_of_items = configuration.ITEMS_TO_PICKED.copy()
 		hallways_copy = hallways.copy()
 		items_positions = dict()
 		
-		for i in Items.ITEMS_TO_PICKED:
+		for i in configuration.ITEMS_TO_PICKED:
+			#For each items to dropped
 			random_position = random.sample(hallways_copy, 1)[0]
-			hallways_copy.discard(random_position)
+			#Choosing one hallway cell randomly
+			hallways_copy.discard(random_position) 
+			#Removing choosed position, avoiding choising the same more then once
 			items_positions[random_position] = list_of_items.pop()
-		
+			#Assigning our item the position choosen
 		return items_positions
 			
 		
