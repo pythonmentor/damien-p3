@@ -2,26 +2,53 @@ class MacGyver:
 	'''
 	Managing MacGyver : PV, position and moving it
 	'''
+	
+	UP = 'z'
+	RIGHT = 'd'
+	DOWN = 's'
+	LEFT = 'q'
 
 	def __init__(self, decor_object):
 		self.position = decor_object.enter
 		self.life = 50
+		
+	def movement(self, input_user):
+		if input_user == MacGyver.UP:
+			self._up()
+		elif input_user == MacGyver.RIGHT:
+			self._right()
+		elif input_user == MacGyver.DOWN:
+			self._down()
+		elif input_user == MacGyver.LEFT:
+			self._left()
 	
-	def up(self, move):
+	def _up(self):
 		#Getting MacGyver up
-		pass
+		self.position = (
+			self.position[0]-1, 
+			self.position[1],
+		)
 		
-	def right(self, move):
+	def _right(self):
 		#Getting MacGyver right
-		pass
+		self.position = (
+			self.position[0],
+			self.position[1]+1,
+		)
 		
-	def down(self, move):
+	def _down(self):
 		#Getting MacGyver down
-		pass
+		self.position = (
+			self.position[0]+1,
+			self.position[1],
+		)
 		
-	def left(self, move):
+	def _left(self):
 		#Getting MacGyver left
-		pass
+		self.position = (
+			self.position[0],
+			self.position[1]-1,
+		)
 		
 	# def dead_mac(self):
 		#Killing MacGyver
